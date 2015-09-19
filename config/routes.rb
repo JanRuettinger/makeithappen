@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get "/charity_organization/:id" , to:"charity_organization#show"
   get "/thank_you", to: "main#thank_you_show"
   get "donate_money", to: "main#donate_money_show"
-  post "/items", to: "main#create"
+  post "/items", to: "main#create_item"
+  post "/charity_orgs", to:"main#create_charityorg"
+  post "/login", to:"main#login"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

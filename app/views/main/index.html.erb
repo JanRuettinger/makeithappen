@@ -68,20 +68,20 @@
             <div id="goods" class="collapse col-md-12">
                 <%= form_for(@item) do |f| %>
                     <div class="col-md-5 form-group">
-                    	<%= f.label:address %>
+                    	<%= f.label :address %>
                     	<%= f.text_field :address, class:"form-control" %>
-                        <%= f.label:zip%>
-                        <%= f.text_field:zip, class:"form-control"%>
-                        <%= f.label:email %>
-                        <%= f.text_field:email, class:"form-control"%>
+                        <%= f.label :zip%>
+                        <%= f.text_field :zip, class:"form-control"%>
+                        <%= f.label :email %>
+                        <%= f.text_field :email, class:"form-control"%>
                     </div>
                     <div class="col-md-5 form-group">
-                    	<%= f.label:name %>
-                    	<%= f.text_field:name, class:"form-control"%>
-                        <%= f.label:url%>
-                        <%= f.text_field:url, class:"form-control"%>
-                        <%= f.label:description %>
-                        <%= f.text_area:description, rows:"1", class:"form-control"%>
+                    	<%= f.label :name %>
+                    	<%= f.text_field :name, class:"form-control"%>
+                        <%= f.label :url%>
+                        <%= f.text_field :url, class:"form-control"%>
+                        <%= f.label :description %>
+                        <%= f.text_area :description, rows:"1", class:"form-control"%>
                     </div>
                     <div class="col-md-2 form-group">
                         <label><strong>All set?</strong></label>
@@ -90,40 +90,54 @@
                 <%end%>
             </div>
             <div id="charity" class="collapse col-md-12">
-               <div class="col-md-5 form-horizontal">
-                    <h4>Welcome Back!</h4>
-                    <form>
-                        <div class="form-group">
-                            <div class="col-md-4"><label class="control-label">E-mail:</label></div>
-                            <div class="col-md-8"><input type="text" class="form-control"></div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-4"><label class="control-label">Password:</label></div>
-                            <div class="col-md-8"><input type="password" class="form-control"></div>
-                        </div>
-                        <input type="submit" class="btn btn-default btn-md form-control">
-                    </form>
-               </div>
+            <div class="col-md-5 form-horizontal">
+             <h4>Welcome Back!</h4>
+                <%= form_for(@charityorg, url: "login") do |f| %>
+                    <div class="col-md-5 form-group">
+                        <%= f.label :email %>
+                        <%= f.text_field :email, class:"form-control" %>
+                        <%= f.label :password %>
+                        <%= f.text_field :password, class:"form-control"%>
+                    </div>
+                    <div class="col-md-5 form-group">
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label><strong>All set?</strong></label>
+                        <%= f.submit class:"btn btn-default btn-md form-control"%>
+                    </div>
+                <%end%>
+                </div>
+
                <div class="col-md-2 text-center">
                		<h2><br><i>or</i></h2>
                </div>
                <div class="col-md-5 form-horizontal">
                     <h4>Sign Up!</h4>
-                    <form>
-                        <div class="form-group">
-                            <div class="col-md-4"><label class="control-label">E-mail:</label></div>
-                            <div class="col-md-8"><input type="text" class="form-control"></div>
+                    <%= form_for(@charityorg) do |f| %>
+                    <div class="col-md-5 form-group">
+                        <%= f.label :email %>
+                        <%= f.text_field :email, class:"form-control" %>
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class:"form-control"%>
+                        <%= f.label :url %>
+                        <%= f.text_field :url, class:"form-control"%>
+                    </div>
+                        <div class="col-md-2 text-center">
+                    <h2><br><i></i></h2>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-4"><label class="control-label">Password:</label></div>
-                            <div class="col-md-8"><input type="password" class="form-control"></div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-4"><label class="control-label">Confirm Password:</label></div>
-                            <div class="col-md-8"><input type="password" class="form-control"></div>
-                        </div>
-                        <input type="submit" class="btn btn-default btn-md form-control">
-                    </form>
+                    <div class="col-md-5 form-group">
+                        <%= f.label :address %>
+                        <%= f.text_field :address, class:"form-control" %>
+                        <%= f.label :zip%>
+                        <%= f.text_field :zip, class:"form-control"%>
+                          <%= f.label :password %>
+                        <%= f.text_field :password, class:"form-control"%>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label><strong>Sign up!</strong></label>
+                        <%= f.submit class:"btn btn-default btn-md form-control"%>
+                    </div>
+                <%end%>
                     <br>
                </div>
             </div>
@@ -134,15 +148,15 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
 	$("#moneyCollapse").click(function(){
-		$("#goods").collapse("hide");	
+		$("#goods").collapse("hide");
 		$("#charity").collapse("hide");
 	});
 	$("#goodsCollapse").click(function(){
-		$("#money").collapse("hide");	
+		$("#money").collapse("hide");
 		$("#charity").collapse("hide");
 	});
 	$("#charityCollapse").click(function(){
-		$("#money").collapse("hide");	
+		$("#money").collapse("hide");
 		$("#goods").collapse("hide");
 	});
 </script>
