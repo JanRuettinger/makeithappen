@@ -42,7 +42,6 @@ class EstimateCalc
     response = http.start {|http| http.request(request) }
 
     uber_json=JSON.parse(response.body)
-    print uber_json
 
     estimate=uber_json["prices"][0]["estimate"]
 
