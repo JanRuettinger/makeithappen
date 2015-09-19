@@ -14,5 +14,12 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :email, :address, :url, :zip, :description)
   end
+  
+  def update
+  	@item=Item.find(params[:id])
+  	@item.requested=(params[:item][:requested])
+  	redirect_to controller: "charity_orgs"
+  	end
+  end
 
 end
