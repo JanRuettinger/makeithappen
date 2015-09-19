@@ -17,9 +17,9 @@ class ItemsController < ApplicationController
   
   def update
   	@item=Item.find(params[:id])
-  	@item.requested=(params[:item][:requested])
-  	redirect_to controller: "charity_orgs"
-  	end
+  	@item.requested=(current_charity().id)
+  	@item.save
+  	redirect_to controller: "charity_orgs", action: "show"
   end
 
 end

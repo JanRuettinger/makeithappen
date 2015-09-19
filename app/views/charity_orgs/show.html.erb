@@ -19,7 +19,7 @@
 
     <div class="container">
     	<div class="row col-md-12 text-center">
-        	<h2>Welcome, <%= @charity.name%> <%=@charity.id%> !</h2>
+        	<h2>Welcome, <%= @charity.name%>!</h2>
             <%= link_to "Log out", logout_path, method: :delete %>
             <h4>Items available in your area:</h4>
             <br>
@@ -39,7 +39,6 @@
                 <div class="col-md-3">
                 	   <br>
                 	        <%=form_for item do |f|%>
-                	       	<%= f.hidden_field:requested, :value=> @charity.id%>
                 	       	<%= f.submit class:"btn btn-default btn-md form-control", value:"Request", style:"font-weight:bold"%>
                           <%end%>
                 </div>
