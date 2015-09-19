@@ -44,6 +44,9 @@
             </div>
             <br>
 	</div>
+        <% if @charityorg.errors.full_messages.any? %>
+           <div style="color: red;" class="col-md-12 text-center"> <i>Form Error! Please correct your input!</i></div>
+        <% end %>
     <div class="bg-primary">
     <div class="container">
         <div class="row">
@@ -94,7 +97,6 @@
             	<h4>Welcome Back!</h4>
             	<br>
             		<%= form_for(:session, url: login_path) do |f| %>
-                	<%= render 'shared/error_messages' %>
                     	<div class="form-group">
                         	<div class="col-md-4"><%= f.label :email ,"E-mail: ", class:"control-label"%></div>
                         	<div class="col-md-8"><%= f.text_field :email, class:"form-control" %></div>

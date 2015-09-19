@@ -8,13 +8,14 @@ class CharityOrgsController < ApplicationController
   end
 
   def create
+    @item = Item.new
     @charityorg = CharityOrg.new(charity_params)
       if @charityorg.save
         log_in @charityorg
         flash[:success] = "Welcome to the Sample App!"
         redirect_to @charityorg
       else
-        redirect_to controller: "main", action: "error"
+        render "main/index"
       end
   end
 
