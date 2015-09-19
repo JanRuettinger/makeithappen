@@ -68,19 +68,19 @@
             <div id="goods" class="collapse col-md-12">
                 <%= form_for(@item) do |f| %>
                     <div class="col-md-5 form-group">
-                    	<%= f.label :address %>
+                    	<%= f.label :address, "Address (Number and Street): ", class:"control-label" %>
                     	<%= f.text_field :address, class:"form-control" %>
-                        <%= f.label :zip%>
+                        <%= f.label :zip, "ZIP Code: ", class:"control-label"%>
                         <%= f.text_field :zip, class:"form-control"%>
-                        <%= f.label :email %>
+                        <%= f.label :email, "E-mail: ", class:"control-label" %>
                         <%= f.text_field :email, class:"form-control"%>
                     </div>
                     <div class="col-md-5 form-group">
-                    	<%= f.label :name %>
+                    	<%= f.label :name, "Item: " , class:"control-label"%>
                     	<%= f.text_field :name, class:"form-control"%>
-                        <%= f.label :url%>
+                        <%= f.label :url, "Image URL: ", class:"control-label"%>
                         <%= f.text_field :url, class:"form-control"%>
-                        <%= f.label :description %>
+                        <%= f.label :description, name:"Brief Description: ", class:"control-label" %>
                         <%= f.text_area :description, rows:"1", class:"form-control"%>
                     </div>
                     <div class="col-md-2 form-group">
@@ -90,59 +90,52 @@
                 <%end%>
             </div>
             <div id="charity" class="collapse col-md-12">
-            <div class="col-md-5 form-horizontal">
-             <h4>Welcome Back!</h4>
-                <%= form_for(:session, url: login_path) do |f| %>
-                <%= render 'shared/error_messages' %>
-
-                    <div class="col-md-5 form-group">
-                        <%= f.label :email %>
-                        <%= f.text_field :email, class:"form-control" %>
-                        <%= f.label :password %>
-                        <%= f.text_field :password, class:"form-control"%>
-                    </div>
-                    <div class="col-md-7 form-group">
-                    </div>
-                    <div class="col-md-12 form-group">
-                        <label><strong>All set?</strong></label>
-                        <%= f.submit "Log in", class:"btn btn-default btn-md form-control"%>
-                    </div>
+            <div class="col-md-4 form-horizontal">
+            	<h4>Welcome Back!</h4>
+            	<br>
+            		<%= form_for(:session, url: login_path) do |f| %>
+                	<%= render 'shared/error_messages' %>
+                    	<div class="form-group">
+                        	<div class="col-md-4"><%= f.label :email ,"E-mail: ", class:"control-label"%></div>
+                        	<div class="col-md-8"><%= f.text_field :email, class:"form-control" %></div>
+                    	</div>
+                    	<div class="form-group">
+                        	<div class="col-md-4"><%= f.label :password, "Password:", class:" control-label"%></div>
+                        	<div class="col-md-8"><%= f.password_field :password, class:"form-control"%></div>
+                    	</div>
+                    <%= f.submit "Log in!", class:"btn btn-default btn-md form-control"%>
+                	<%end%>
+			</div>
+		   	<div class="col-md-1 text-center">
+				<h2><br><i>or</i></h2>
+		   	</div>
+		   	<div class="col-md-6 form">
+		   		<div class="col-md-12">
+					<h4>Sign Up!</h4>
+				</div>
+				<%= form_for(@charityorg) do |f| %>
+				<div class="col-md-6 form-group">
+					<%= f.label :email,"E-mail: ", class:"control-label" %>
+					<%= f.text_field :email, class:"form-control" %>
+					<%= f.label :name, "Organization Name: ", class:"control-label"%>
+					<%= f.text_field :name, class:"form-control"%>
+					<%= f.label :url, "URL (Optional): ", class:"control-label" %>
+					<%= f.text_field :url, class:"form-control"%>
+				</div>
+				<div class="col-md-6 form-group">
+					<%= f.label :address, "Address (Number and Street): ",class:"control-label"%>
+					<%= f.text_field :address, class:"form-control" %>
+					<%= f.label :zip, "ZIP Code: ",class:"control-label"%>
+					<%= f.text_field :zip, class:"form-control"%>
+					<%= f.label :password,  "Password: ", class:"control-label"%>
+					<%= f.password_field :password, class:"form-control"%>
+				</div>
+				<div class="col-md-12 form-group">
+					<%= f.submit "Sign up!", class:"btn btn-default btn-md form-control"%>
+				</div>
                 <%end%>
-                </div>
-
-               <div class="col-md-2 text-center">
-               		<h2><br><i>or</i></h2>
-               </div>
-               <div class="col-md-5 form-horizontal">
-                    <h4>Sign Up!</h4>
-                    <%= form_for(@charityorg) do |f| %>
-                    <div class="col-md-5 form-group">
-                        <%= f.label :email %>
-                        <%= f.text_field :email, class:"form-control" %>
-                        <%= f.label :name %>
-                        <%= f.text_field :name, class:"form-control"%>
-                        <%= f.label :url %>
-                        <%= f.text_field :url, class:"form-control"%>
-                    </div>
-                        <div class="col-md-2 text-center">
-                    <h2><br><i></i></h2>
-                        </div>
-                    <div class="col-md-5 form-group">
-                        <%= f.label :address %>
-                        <%= f.text_field :address, class:"form-control" %>
-                        <%= f.label :zip%>
-                        <%= f.text_field :zip, class:"form-control"%>
-                          <%= f.label :password %>
-                        <%= f.text_field :password, class:"form-control"%>
-                    </div>
-                    <div class="col-md-12 form-group">
-                        <label><strong>Sign up!</strong></label>
-                        <%= f.submit "Sign up", class:"btn btn-default btn-md form-control"%>
-                    </div>
-                <%end%>
-                    <br>
-               </div>
-            </div>
+                <br>
+        	</div>
         </div>
  	</div>
     </div>
