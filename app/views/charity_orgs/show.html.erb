@@ -19,43 +19,33 @@
 
     <div class="container">
     	<div class="row col-md-12 text-center">
-        	<h2>Welcome, NAME-OF-CHARITY!</h2>
+        	<h2>Welcome, <%= @charity.name%> !</h2>
             <%= link_to "Log out", logout_path, method: :delete %>
             <h4>Items available in your area:</h4>
             <br>
         </div>
 	</div>
-    <div class="container bg-primary">
-        <div class="row">
-        	<div class="col-md-3"><p>Item Pic Here</p></div>
-            <div class="col-md-6">
-            	<p><strong>Name: </strong> NAME-OF-ITEM</p>
-                <p><strong>Description: </strong><br>DESCRIPTION-HERE</p>
+
+        <% @items.each do |item| %>
+         <div class="container bg-primary">
+            <div class="row">
+            	<div class="col-md-3">
+                        <p>Item Pic Here</p>
+                </div>
+                 <div class="col-md-6">
+                	    <p><strong>Name: </strong> <%= item.name %> </p>
+                        <p><strong>Description: </strong><br><%= item.address %> </p>
+                </div>
+                <div class="col-md-3">
+                	   <br>
+                	       <form>
+                    	       <input type="submit" class="btn btn-default btn-md form-control" value="Make It Happen!" style="font-weight:bold">
+                           </form>
+                </div>
             </div>
-            <div class="col-md-3">
-            	<br>
-            	<form>
-                	<input type="submit" class="btn btn-default btn-md form-control" value="Make It Happen!" style="font-weight:bold">
-                </form>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="container bg-primary">
-        <div class="row">
-        	<div class="col-md-3"><p>Item Pic Here</p></div>
-            <div class="col-md-6">
-            	<p><strong>Name: </strong> NAME-OF-ITEM</p>
-                <p><strong>Description: </strong><br>DESCRIPTION-HERE</p>
-            </div>
-            <div class="col-md-3">
-            	<br>
-            	<form>
-                	<input type="submit" class="btn btn-default btn-md form-control" value="Make It Happen!" style="font-weight:bold">
-                </form>
-            </div>
-        </div>
-    </div>
-    <br>
+         </div>
+            <br>
+        <% end %>
+
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

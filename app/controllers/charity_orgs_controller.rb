@@ -1,5 +1,10 @@
 class CharityOrgsController < ApplicationController
   def show
+    @items = Item.all.where("requested = 0")
+
+    # @items = calculate_requests(self)
+
+    @charity = current_charity()
   end
 
   def create

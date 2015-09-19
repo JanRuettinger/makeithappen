@@ -1,1 +1,52 @@
-<h1>Donate money!</h1>
+<nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Make It Happen!</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <div class="container">
+      <div class="row col-md-12 text-center">
+          <h2>Welcome, <%= @charity.name%> !</h2>
+            <h4>You can help these refugees getting their clothes by paying for the Uber ride!</h4>
+            <br>
+        </div>
+  </div>
+
+        <% @items.each do |item| %>
+         <div class="container bg-primary">
+            <div class="row">
+              <div class="col-md-3">
+                        <p>Item Pic Here</p>
+                </div>
+                 <div class="col-md-6">
+                      <p><strong>Name: </strong> <%= item.name %> </p>
+                        <p><strong>Description: </strong><br><%= item.address %> </p>
+                </div>
+                <div class="col-md-3">
+                     <br>
+                         <form>
+                             <input type="submit" class="btn btn-default btn-md form-control" value="Make It Happen!" style="font-weight:bold">
+                           </form>
+                </div>
+            </div>
+         </div>
+            <br>
+        <% end %>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+

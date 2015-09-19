@@ -10,4 +10,8 @@ module SessionsHelper
     @current_charityorg = nil
   end
 
+  def current_charity
+    @current_charity ||= CharityOrg.find_by(id: session[:charityorg_id])
+  end
+
 end

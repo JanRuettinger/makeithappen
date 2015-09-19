@@ -6,6 +6,7 @@ class Item < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :name,  presence: true
+  validates :requested, presence: true
   validates :address,  presence: true
   validates :zip,  presence: true,length: { maximum: 7 }
 end
