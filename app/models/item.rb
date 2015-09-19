@@ -1,3 +1,5 @@
+require_relative "../../lib/assets/estimate_calc"
+
 class Item < ActiveRecord::Base
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 50 }
@@ -9,4 +11,14 @@ class Item < ActiveRecord::Base
   validates :requested, presence: true
   validates :address,  presence: true
   validates :zip,  presence: true,length: { maximum: 7 }
+  
+  def charity_requested
+  	CharityOrg.find(requested)
+  end
+  
+  def estimate_cost
+  	start_address = address.dup.concat(zip)
+  	end_address = charity_requested.address.dup.concat(charity_requested.zip)
+  	return EstimateCalc.new.getUberXPrice(start_address, end_address)
+  end
 end
