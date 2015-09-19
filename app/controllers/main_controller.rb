@@ -7,7 +7,7 @@ class MainController < ApplicationController
   def create
   @item=Item.new(item_params)
     if @item.save
-      render "thank_you_show"
+      redirect_to action: "thank_you_show"
     else
       render "donate_money_show"
     end
