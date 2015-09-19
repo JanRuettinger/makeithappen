@@ -48,7 +48,22 @@
     <div class="container">
         <div class="row">
             <div id="money" class="collapse col-md-12">
-                <h4>Check back soon!</h4>
+           		<form>
+                    <div class="col-md-5 form-group">
+                     	<label>Name: </label><input type="text" class="form-control">
+                    	<label>Address (Number and Street): </label><input type="text" class="form-control">
+                        <label>ZIP Code: </label><input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-5 form-group">
+                       	<label>E-mail:</label><input type="text" class="form-control">
+                    	<label>Payment Account: </label><input type="text" class="form-control">
+                        <label>Expiration (mm/yyyy): </label><input type="text" class="form-control">
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label><strong>All set?</strong></label>
+                        <input type="submit" class="btn btn-default btn-md form-control" value="Continue" style="font-weight:bold">
+                    </div>
+                </form>
             </div>
             <div id="goods" class="collapse col-md-12">
                 <%= form_for(@item) do |f| %>
