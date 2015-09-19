@@ -17,8 +17,10 @@ class Item < ActiveRecord::Base
   end
   
   def estimate_cost
-  	start_address = address.dup.concat(zip)
-  	end_address = charity_requested.address.dup.concat(charity_requested.zip)
+  	start_address = address.dup.concat(" ").concat(zip)
+  	print charity_requested.address
+  	print charity_requested.zip
+  	end_address = charity_requested.address.dup.concat(" ").concat(charity_requested.zip)
   	return EstimateCalc.new.getUberXPrice(start_address, end_address)
   end
 end

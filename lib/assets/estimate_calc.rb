@@ -8,12 +8,12 @@ class EstimateCalc
 
     gMaps_baseURL="https://maps.googleapis.com/maps/api/geocode/json?address="
 
-    address1_getURL=URI.parse(URI.escape(gMaps_baseURL.concat(address1)))
-    address2_getURL=URI.parse(URI.escape(gMaps_baseURL.concat(address2)))
-
+    address1_getURL=URI.parse(URI.escape(gMaps_baseURL.dup.concat(address1)))
+    address2_getURL=URI.parse(URI.escape(gMaps_baseURL.dup.concat(address2)))
+    
     address1_json=Net::HTTP.get_response(address1_getURL).body
     address2_json=Net::HTTP.get_response(address2_getURL).body
-
+    
     address1_data=JSON.parse(address1_json)
 
     address1_latitude=address1_data["results"][0]["geometry"]["location"]["lat"]
@@ -42,6 +42,7 @@ class EstimateCalc
     response = http.start {|http| http.request(request) }
 
     uber_json=JSON.parse(response.body)
+    print uber_json
 
     estimate=uber_json["prices"][0]["estimate"]
 
