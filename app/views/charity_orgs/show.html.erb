@@ -23,10 +23,18 @@
             <%= link_to "Log out", logout_path, method: :delete %>
             <h4>Items available in your area:</h4>
             <br>
+            <div id="loading" class="collapse in"><p>Loading, please wait..</p></div>
         </div>
 	</div>
-
-
+	
+	<div id="partial">
+    </div>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function (){
+		$("#partial").load("/possible_items");
+		$("#loading").collapse("hide");
+	});
+</script>
