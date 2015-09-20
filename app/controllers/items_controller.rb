@@ -18,7 +18,6 @@ class ItemsController < ApplicationController
   	begin
 		@item=Item.find(params[:id])
 		@item.requested=(current_charity().id)
-		@item.estimate_cost_cached=@item.estimate_cost
 		@item.save
 		render :text =>"0"
   	rescue

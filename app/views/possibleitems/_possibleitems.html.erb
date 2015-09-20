@@ -4,10 +4,14 @@
               <div class="col-md-3">
                         <p>Item Pic Here</p>
                 </div>
-                 <div class="col-md-6">
+                <div class="col-md-4">
                       <p><strong>Name: </strong> <%= item.name %> </p>
                         <p><strong>Description: </strong><br><%= item.description %> </p>
                 </div>
+                <div class="col-md-2">
+                	<p><strong>Estimated Money Needed: </strong></p>
+					<h4><%= item.estimate_cost_cached %></h4>
+				</div>
                 <div class="col-md-3">
                      <br>
                           <%=form_for item do |f|%>
