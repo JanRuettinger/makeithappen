@@ -15,16 +15,20 @@ class ItemsController < ApplicationController
   end
 
   def update
-  	begin
-		@item=Item.find(params[:id])
-		@item.requested=(current_charity().id)
-		@item.save
-		render :text =>"0"
-  	rescue
-  		render :text =>"1"
+  	@item=Item.find(params[:id])
+  	if (params[:itemPaidFor])
+  		render :text => "item paid for"
+  		@item.destroy
+  	else
+		begin
+			@item.requested=(current_charity().id)
+			@item.save
+			render :text =>"0"
+		rescue
+			render :text =>"1"
+		end
   	end
   end
-
 
 
 
