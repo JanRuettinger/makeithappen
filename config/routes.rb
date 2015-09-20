@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   #post "/items", to: "items#create"
   resources :items
 
+  get "possible_items", to: "possibleitems#calculateorder"
+
   get "error", to:"main#error"
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
