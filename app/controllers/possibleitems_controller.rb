@@ -5,7 +5,7 @@ class PossibleitemsController < ApplicationController
     @items = []
     @cost = []
     itemsall = Item.all.where("request = 0")
-    itemsall.each |item| do
+    itemsall.each do |item|
       c = item.estimate_cost_for_charity(current_charity())
       if c != "-1"
           @items.push(item)
