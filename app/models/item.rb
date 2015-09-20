@@ -21,4 +21,15 @@ class Item < ActiveRecord::Base
   	end_address = charity_requested.address.dup.concat(" ").concat(charity_requested.zip)
   	return EstimateCalc.new.getUberXPrice(start_address, end_address)
   end
+  
+  def estimate_cost_for_charity(c)
+  	begin
+  		start_address = address.dup.concat(" ").concat(zip)
+  		end_address = c.address.dup.concat(" ").concat(c.zip)
+  		return EstimateCalc.new.getUberXPrice(start_address, end_address)
+  	rescue
+  		return "-1"
+  	end
+  end
+  
 end

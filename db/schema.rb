@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919115633) do
+ActiveRecord::Schema.define(version: 20150919060618) do
 
   create_table "charity_orgs", force: :cascade do |t|
     t.string   "email"
@@ -31,9 +31,10 @@ ActiveRecord::Schema.define(version: 20150919115633) do
     t.string   "description"
     t.string   "zip"
     t.string   "address"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "estimate_cost_cached"
     t.integer  "requested"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
 end

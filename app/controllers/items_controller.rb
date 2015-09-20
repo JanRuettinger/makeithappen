@@ -9,17 +9,21 @@ class ItemsController < ApplicationController
       redirect_to controller: "main", action: "error"
     end
   end
-
-
+	
   def item_params
     params.require(:item).permit(:name, :email, :address, :url, :zip, :description)
   end
   
   def update
-  	@item=Item.find(params[:id])
-  	@item.requested=(current_charity().id)
-  	@item.save
-  	redirect_to controller: "charity_orgs", action: "show"
+  	begin
+		@item=Item.find(params[:id])
+		@item.requested=(current_charity().id)
+		@item.estimate_cost_cached=@item.estimate_cost
+		@item.save
+		render :text =>"0"
+  	rescue
+  		render :text =>"1"
+  	end
   end
 
 end

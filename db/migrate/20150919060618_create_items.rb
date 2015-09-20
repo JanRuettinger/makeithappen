@@ -7,6 +7,8 @@ class CreateItems < ActiveRecord::Migration
       t.string :description
       t.string :zip
       t.string :address
+      t.string :estimate_cost_cached
+      t.integer :requested
 
       t.timestamps null: false
     end

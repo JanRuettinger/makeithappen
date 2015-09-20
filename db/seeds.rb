@@ -5,13 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first
-Item.create(name: "T-Shirt", address: "Marienplatz 8", zip: "80331", requested: "1",
+Item.create(name: "T-Shirt", address: "Marienplatz 8", zip: "80331", requested: "0",
             url: "google.com", email: "test@test.com")
 
-Item.create(name: "Pants", address: "Nordallee 25", zip: "85356", requested: "1",
+Item.create(name: "Pants", address: "Nordallee 25", zip: "85356", requested: "0",
             url: "google.com", email: "test2@test.com")
 
-Item.create(name: "Underwear", address: "Geschwister-Scholl-Platz 1", zip: "80539", requested: "1",
+Item.create(name: "Underwear", address: "Geschwister-Scholl-Platz 1", zip: "80539", requested: "0",
             url: "google.com", email: "test3@test.com")
 
 Item.create(name: "Shorts", address: "Am Olympiapark 1", zip: "80809", requested: "0",
