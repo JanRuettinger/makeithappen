@@ -26,26 +26,7 @@
         </div>
 	</div>
 
-        <% @items.each do |item| %>
-         <div class="container bg-primary">
-            <div class="row">
-            	<div class="col-md-3">
-                        <p>Item Pic Here</p>
-                </div>
-                 <div class="col-md-6">
-                	    <p><strong>Name: </strong> <%= item.name %> </p>
-                        <p><strong>Description: </strong><br><%= item.description %> </p>
-                </div>
-                <div class="col-md-3">
-                	   <br>
-                	        <%=form_for item do |f|%>
-                	       	<%= f.submit class:"btn btn-default btn-md form-control", value:"Request", style:"font-weight:bold"%>
-                          <%end%>
-                </div>
-            </div>
-         </div>
-            <br>
-        <% end %>
+
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

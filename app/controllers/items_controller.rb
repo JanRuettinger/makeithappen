@@ -9,11 +9,11 @@ class ItemsController < ApplicationController
       redirect_to controller: "main", action: "error"
     end
   end
-	
+
   def item_params
     params.require(:item).permit(:name, :email, :address, :url, :zip, :description)
   end
-  
+
   def update
   	begin
 		@item=Item.find(params[:id])
@@ -25,5 +25,8 @@ class ItemsController < ApplicationController
   		render :text =>"1"
   	end
   end
+
+
+
 
 end
