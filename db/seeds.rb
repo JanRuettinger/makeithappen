@@ -26,7 +26,7 @@ Item.create(name: "Socks", address: "HMessegelände", zip: "81823", requested: "
 
 
 CharityOrg.create(name: "Rotes Kreuz", address: "Garmischer Straße 19", zip: "81373", password: "test",
-            url: "google.com", email: "test1@test.com")
+            url: "google.com", email: "test1@test.com" )
 
 CharityOrg.create(name: "Greenpeace", address: "Frohschammer Straße 14", zip: "80807", password: "test",
             url: "google.com", email: "test2@test.com")
