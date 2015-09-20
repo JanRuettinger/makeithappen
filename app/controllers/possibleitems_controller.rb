@@ -4,7 +4,7 @@ class PossibleitemsController < ApplicationController
 
     @items = []
     @cost = []
-    itemsall = Item.all.where("request = 0")
+    itemsall = Item.all.where("requested = 0")
     itemsall.each do |item|
       c = item.estimate_cost_for_charity(current_charity())
       if c != "-1"
@@ -12,6 +12,9 @@ class PossibleitemsController < ApplicationController
           @cost.push(c)
       end
     end
+
+  render :partial=>'possibleitems'
+
   end
 
 end
